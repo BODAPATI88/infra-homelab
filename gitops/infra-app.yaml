@@ -1,5 +1,6 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
+
 metadata:
   name: infra-app
   namespace: argocd
@@ -20,3 +21,6 @@ spec:
     automated:
       selfHeal: true
       prune: false
+
+    syncOptions:
+      - ServerSideApply=true
