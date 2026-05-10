@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"cloudflare-tunnel","namespace":"cloudflared"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"cloudflare-tunnel"}},"template":{"metadata":{"labels":{"app":"cloudflare-tunnel"}},"spec":{"containers":[{"args":["tunnel","--no-autoupdate","run","--token","$(TUNNEL_TOKEN)"],"env":[{"name":"TUNNEL_TOKEN","valueFrom":{"secretKeyRef":{"key":"token","name":"cloudflare-token"}}}],"image":"cloudflare/cloudflared:latest","name":"cloudflare-tunnel"}]}}}}
+  creationTimestamp: "2026-05-10T14:18:51Z"
+  generation: 1
+  name: cloudflare-tunnel
+  namespace: cloudflared
+  resourceVersion: "283000"
+  uid: 8bc507a4-b047-4c0e-92ab-40818032df89
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cloudflare-tunnel
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: cloudflare-tunnel
+    spec:
+      containers:
+      - args:
+        - tunnel
+        - --no-autoupdate
+        - run
+        - --token
+        - $(TUNNEL_TOKEN)
+        env:
+        - name: TUNNEL_TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: token
+              name: cloudflare-token
+        image: cloudflare/cloudflared:latest
+        imagePullPolicy: Always
+        name: cloudflare-tunnel
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2026-05-10T14:18:54Z"
+    lastUpdateTime: "2026-05-10T14:18:54Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2026-05-10T14:18:51Z"
+    lastUpdateTime: "2026-05-10T14:18:54Z"
+    message: ReplicaSet "cloudflare-tunnel-597dd488c6" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

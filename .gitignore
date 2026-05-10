@@ -1,0 +1,5 @@
+*.tar.gz
+cloudflare-secret.yaml
+full-cluster-state.yaml
+k8s-backup/
+*.log

@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: demo-app:networking.k8s.io/Ingress:default/nginx-ingress
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"argocd.argoproj.io/tracking-id":"demo-app:networking.k8s.io/Ingress:default/nginx-ingress"},"name":"nginx-ingress","namespace":"default"},"spec":{"ingressClassName":"traefik","rules":[{"host":"demo.bvrinfra.in","http":{"paths":[{"backend":{"service":{"name":"demo-service","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
+  creationTimestamp: "2026-02-15T21:59:17Z"
+  generation: 5
+  name: nginx-ingress
+  namespace: default
+  resourceVersion: "191503"
+  uid: 21611df3-11b4-4153-955e-ebe71e0de792
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: demo.bvrinfra.in
+    http:
+      paths:
+      - backend:
+          service:
+            name: demo-service
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+status:
+  loadBalancer: {}

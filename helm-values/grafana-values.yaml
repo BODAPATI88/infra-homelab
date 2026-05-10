@@ -1,0 +1,7 @@
+persistence:
+  accessModes:
+  - ReadWriteOnce
+  enabled: true
+  size: 5Gi
+  storageClassName: local-path
+  type: pvc
