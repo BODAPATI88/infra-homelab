@@ -4,10 +4,9 @@ kind: Ingress
 metadata:
   name: bvrinfra-site
 
-  annotations:
-    kubernetes.io/ingress.class: traefik
-
 spec:
+  ingressClassName: traefik
+
   rules:
   - host: bvrinfra.in
 
