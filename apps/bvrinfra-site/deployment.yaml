@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bvrinfra-site
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: bvrinfra-site
+
+  template:
+    metadata:
+      labels:
+        app: bvrinfra-site
+
+    spec:
+      containers:
+      - name: bvrinfra-site
+        image: bodapati88/bvrinfra-site:latest
+
+        ports:
+        - containerPort: 80
+
+        imagePullPolicy: Always

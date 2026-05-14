@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: bvrinfra-site
+
+  annotations:
+    kubernetes.io/ingress.class: traefik
+
+spec:
+  rules:
+  - host: bvrinfra.in
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: bvrinfra-site
+
+            port:
+              number: 80
