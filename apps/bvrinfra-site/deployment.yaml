@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bvrinfra-site
+
 spec:
   replicas: 1
 
@@ -15,11 +16,14 @@ spec:
         app: bvrinfra-site
 
     spec:
+      imagePullSecrets:
+      - name: ghcr-secret
+
       containers:
       - name: bvrinfra-site
-        image: bodapati88/bvrinfra-site:latest
+        image: ghcr.io/bodapati88/bvrinfra-site:latest
+
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 80
-
-        imagePullPolicy: Always
