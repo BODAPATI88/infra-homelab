@@ -3,13 +3,23 @@ kind: Ingress
 
 metadata:
   name: bvrinfra-site
+  namespace: default
+
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 
 spec:
   ingressClassName: traefik
 
+  tls:
+  - hosts:
+    - bvrinfra.in
+    - www.bvrinfra.in
+    secretName: bvrinfra-site-tls
+
   rules:
   - host: bvrinfra.in
-
     http:
       paths:
       - path: /
@@ -18,6 +28,17 @@ spec:
         backend:
           service:
             name: bvrinfra-site
+            port:
+              number: 80
 
+  - host: www.bvrinfra.in
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: bvrinfra-site
             port:
               number: 80
