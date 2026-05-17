@@ -1,19 +1,32 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
-  annotations:
   name: grafana
   namespace: monitoring
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+
 spec:
   ingressClassName: traefik
+
+  tls:
+  - hosts:
+    - grafana.bvrinfra.in
+    secretName: wildcard-bvrinfra-tls
+
   rules:
   - host: grafana.bvrinfra.in
+
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+
+        backend:
           service:
             name: grafana
             port:
               number: 80
-        path: /
-        pathType: Prefix

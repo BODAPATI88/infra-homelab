@@ -1,19 +1,32 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
+
 metadata:
-  annotations:
   name: argocd
   namespace: argocd
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+
 spec:
   ingressClassName: traefik
+
+  tls:
+  - hosts:
+    - argocd.bvrinfra.in
+    secretName: wildcard-bvrinfra-tls
+
   rules:
   - host: argocd.bvrinfra.in
+
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+
+        backend:
           service:
             name: argocd-server
             port:
               number: 80
-        path: /
-        pathType: Prefix
