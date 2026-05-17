@@ -2,14 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"grafana","namespace":"monitoring"},"spec":{"ingressClassName":"traefik","rules":[{"host":"grafana.bvrinfra.in","http":{"paths":[{"backend":{"service":{"name":"grafana","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
-  creationTimestamp: "2026-04-24T13:25:37Z"
-  generation: 2
   name: grafana
   namespace: monitoring
-  resourceVersion: "191492"
-  uid: 2336800b-2b71-41e2-aa55-be6ee79a5194
 spec:
   ingressClassName: traefik
   rules:
@@ -23,5 +17,3 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-status:
-  loadBalancer: {}

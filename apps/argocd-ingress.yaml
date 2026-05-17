@@ -2,14 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{},"name":"argocd","namespace":"argocd"},"spec":{"ingressClassName":"traefik","rules":[{"host":"argocd.bvrinfra.in","http":{"paths":[{"backend":{"service":{"name":"argocd-server","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}]}}
-  creationTimestamp: "2026-04-28T11:32:36Z"
-  generation: 1
   name: argocd
   namespace: argocd
-  resourceVersion: "191491"
-  uid: adca62e9-aca6-4f45-8aa9-7c393dead470
 spec:
   ingressClassName: traefik
   rules:
@@ -23,5 +17,3 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-status:
-  loadBalancer: {}
