@@ -6,16 +6,11 @@ metadata:
   namespace: monitoring
 
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
+    kubernetes.io/ingress.class: traefik
 
 spec:
   ingressClassName: traefik
 
-  tls:
-  - hosts:
-    - grafana.bvrinfra.in
-    secretName: wildcard-bvrinfra-tls
 
   rules:
   - host: grafana.bvrinfra.in
