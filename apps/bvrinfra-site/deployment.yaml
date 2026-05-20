@@ -17,6 +17,8 @@ spec:
         app: bvrinfra-site
 
     spec:
+      nodeSelector:
+        workload: apps
       imagePullSecrets:
       - name: ghcr-secret
 
