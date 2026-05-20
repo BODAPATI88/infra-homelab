@@ -19,7 +19,7 @@ spec:
       containers:
         - name: portfolio
           image: ghcr.io/bodapati88/bvrinfra-portfolio:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           resources:
