@@ -1,0 +1,54 @@
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      limits:
+        memory: 128Mi
+      requests:
+        memory: 64Mi
+    nodeSelector:
+      workload: observability
+
+grafana:
+  nodeSelector:
+    workload: observability
+  replicas: 1
+
+kube-state-metrics:
+  resources:
+    limits:
+      memory: 64Mi
+    requests:
+      memory: 32Mi
+
+prometheus:
+  prometheusSpec:
+    nodeSelector:
+      workload: observability
+    resources:
+      limits:
+        cpu: 500m
+        memory: 768Mi
+      requests:
+        cpu: 100m
+        memory: 256Mi
+    retention: 3d
+    scrapeInterval: 60s
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi
+          storageClassName: local-path
+
+prometheus-node-exporter:
+  hostPort: 9101
+  resources:
+    limits:
+      memory: 32Mi
+    requests:
+      memory: 16Mi
+  service:
+    port: 9101

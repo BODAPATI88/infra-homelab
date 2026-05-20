@@ -2,8 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 
 metadata:
+  namespace: apps
   name: bvrinfra-site
-  namespace: default
 
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-cloudflare

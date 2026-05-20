@@ -1,0 +1,53 @@
+grafana:
+  replicas: 1
+
+prometheus:
+  prometheusSpec:
+    retention: 3d
+
+    resources:
+      requests:
+        memory: 256Mi
+        cpu: 100m
+      limits:
+        memory: 768Mi
+        cpu: 500m
+
+    scrapeInterval: 60s
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: local-path
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Gi
+
+alertmanager:
+  alertmanagerSpec:
+    resources:
+      requests:
+        memory: 64Mi
+      limits:
+        memory: 128Mi
+
+kube-state-metrics:
+  resources:
+    requests:
+      memory: 32Mi
+    limits:
+      memory: 64Mi
+
+prometheus-node-exporter:
+  hostPort: 9101
+
+  resources:
+    requests:
+      memory: 16Mi
+    limits:
+      memory: 32Mi
+
+  service:
+    port: 9101
