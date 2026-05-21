@@ -1,8 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   namespace: apps
   name: bvrinfra-site
+  labels:
+    app: bvrinfra-site
+    managed-by: argocd
 
 spec:
   replicas: 1
@@ -19,14 +23,30 @@ spec:
     spec:
       nodeSelector:
         workload: apps
+
       imagePullSecrets:
-      - name: ghcr-secret
+        - name: ghcr-secret
 
       containers:
-      - name: bvrinfra-site
-        image: ghcr.io/bodapati88/bvrinfra-site:sha-678f758
+        - name: bvrinfra-site
 
-        imagePullPolicy: Always
+          image: ghcr.io/bodapati88/bvrinfra-site:sha-678f758
 
-        ports:
-        - containerPort: 80
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 80
+
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 5
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 15
+            periodSeconds: 20
