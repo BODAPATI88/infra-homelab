@@ -1,0 +1,28 @@
+backend:
+  replicas: 0
+chunksCache:
+  enabled: false
+deploymentMode: SingleBinary
+loki:
+  auth_enabled: false
+  commonConfig:
+    replication_factor: 1
+  compactor:
+    delete_request_store: filesystem
+    retention_enabled: true
+  limits_config:
+    retention_period: 168h
+  storage:
+    type: filesystem
+  useTestSchema: true
+monitoring:
+  selfMonitoring:
+    enabled: false
+read:
+  replicas: 0
+singleBinary:
+  replicas: 1
+write:
+  replicas: 0
+lokiCanary:
+  enabled: false
