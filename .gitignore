@@ -1,5 +1,52 @@
-*.tar.gz
-cloudflare-secret.yaml
-full-cluster-state.yaml
-k8s-backup/
+# Logs
 *.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# Environment files
+.env
+.env.*
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup archives
+*.tar
+*.gz
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# Helm
+charts/
+
+# Generated manifests
+rendered/
+
+# Local scripts output
+output/
+reports/
+snapshots/
