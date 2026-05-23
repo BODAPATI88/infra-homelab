@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+
+metadata:
+  name: bvrinfra-platform
+  namespace: platform
+
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+
+spec:
+  ingressClassName: traefik
+
+  tls:
+  - hosts:
+    - platform.bvrinfra.in
+
+    secretName: wildcard-bvrinfra-tls
+
+  rules:
+  - host: platform.bvrinfra.in
+
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+
+        backend:
+          service:
+            name: bvrinfra-platform-service
+
+            port:
+              number: 80

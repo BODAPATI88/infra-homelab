@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: bvrinfra-platform
+  namespace: platform
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: bvrinfra-platform
+
+  template:
+    metadata:
+      labels:
+        app: bvrinfra-platform
+
+    spec:
+
+      nodeSelector:
+        kubernetes.io/hostname: k8s-master
+
+      tolerations:
+      - key: "node-role.kubernetes.io/control-plane"
+        operator: "Exists"
+        effect: "NoSchedule"
+
+      containers:
+      - name: bvrinfra-platform
+
+        image: docker.io/library/bvrinfra-platform:v1
+
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 8080
+
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+
+          limits:
+            cpu: "300m"
+            memory: "512Mi"
+
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 1000
+          allowPrivilegeEscalation: false
