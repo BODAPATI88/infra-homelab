@@ -52,14 +52,21 @@ prometheus-node-exporter:
   service:
     port: 9101
 grafana:
-  nodeSelector:
-    workload-monitoring: enabled
+  sidecar:
+    dashboards:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 50m
+          memory: 64Mi
 
-  resources:
-    requests:
-      cpu: 50m
-      memory: 128Mi
-
-    limits:
-      cpu: 300m
-      memory: 512Mi
+    datasources:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 50m
+          memory: 64Mi
