@@ -9,7 +9,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/BODAPATI88/infra-git.git
+    repoURL: https://github.com/BODAPATI88/infra-homelab.git
     targetRevision: main
     path: apps/platform
 
