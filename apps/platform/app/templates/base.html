@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="bg-gray-950 text-gray-100">
+
+<div class="flex min-h-screen">
+
+    <aside class="w-64 bg-gray-900 border-r border-gray-800 p-6 hidden md:block">
+        <h1 class="text-2xl font-bold mb-10 text-cyan-400">
+            BVRINFRA
+        </h1>
+
+        <nav class="space-y-4">
+            <a href="/" class="block hover:text-cyan-400">Dashboard</a>
+            <a href="/status" class="block hover:text-cyan-400">Platform Status</a>
+            <a href="/architecture" class="block hover:text-cyan-400">Architecture</a>
+            <a href="/incidents" class="block hover:text-cyan-400">Incidents</a>
+            <a href="/operations" class="block hover:text-cyan-400">Operations</a>
+            <a href="/documentation" class="block hover:text-cyan-400">Documentation</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 p-8">
+        {% block content %}{% endblock %}
+    </main>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="space-y-12">
+
+    <!-- Header -->
+
+    <section>
+
+        <h1 class="text-5xl font-bold mb-4">
+            Operational Documentation
+        </h1>
+
+        <p class="text-gray-400 text-xl">
+            Recovery procedures, governance standards, operational runbooks, and platform engineering references
+        </p>
+
+    </section>
+
+    <!-- Documentation Categories -->
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Recovery Runbooks
+            </p>
+
+            <h2 class="text-3xl font-bold text-cyan-400">
+                Active
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Cluster recovery procedures
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Governance Policies
+            </p>
+
+            <h2 class="text-3xl font-bold text-green-400">
+                Enforced
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Namespace controls
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Audit Standards
+            </p>
+
+            <h2 class="text-3xl font-bold text-purple-400">
+                Operational
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Platform audit framework
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Backup Validation
+            </p>
+
+            <h2 class="text-3xl font-bold text-yellow-400">
+                Verified
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Recovery-tested backups
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Recovery Procedures -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-8">
+            Recovery Procedures
+        </h2>
+
+        <div class="space-y-6">
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">
+                    Cluster Recovery
+                </h3>
+
+                <p class="text-gray-300 mb-4">
+                    Full K3s recovery workflow using validated datastore snapshots, manifests, and GitOps repository restoration.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    docs/recovery/cluster-recovery.md
+                </div>
+
+            </div>
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">
+                    Observability Recovery
+                </h3>
+
+                <p class="text-gray-300 mb-4">
+                    Prometheus, Grafana, Loki, and Promtail operational restoration procedures.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    monitoring and logging namespace restoration
+                </div>
+
+            </div>
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <h3 class="text-2xl font-semibold text-cyan-400 mb-4">
+                    Node Recovery
+                </h3>
+
+                <p class="text-gray-300 mb-4">
+                    Worker node validation, recovery diagnostics, scheduling restoration, and workload redistribution procedures.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    operational node recovery workflow
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Governance -->
+
+    <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Governance Standards
+            </h2>
+
+            <div class="space-y-5 text-gray-300">
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        ResourceQuota Policies
+                    </h3>
+
+                    <p>
+                        Namespace-level resource ceilings protect cluster stability and observability reliability.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        LimitRange Enforcement
+                    </h3>
+
+                    <p>
+                        Default workload resource boundaries improve operational predictability.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        Git-Tracked Operations
+                    </h3>
+
+                    <p>
+                        Infrastructure changes are version-controlled and operationally auditable.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Operational Standards
+            </h2>
+
+            <div class="space-y-5 text-gray-300">
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        Backup Validation
+                    </h3>
+
+                    <p>
+                        Backups are validated structurally and operationally before retention.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        Audit Collection
+                    </h3>
+
+                    <p>
+                        Platform snapshots capture workloads, ingress, certificates, nodes, and operational metrics.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-cyan-400 mb-2">
+                        Recovery Readiness
+                    </h3>
+
+                    <p>
+                        Operational procedures prioritize rapid restoration and infrastructure continuity.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Platform Philosophy -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-6">
+            Engineering Philosophy
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Operational Clarity
+                </h3>
+
+                <p>
+                    Infrastructure visibility and operational transparency are treated as primary engineering requirements.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Controlled Complexity
+                </h3>
+
+                <p>
+                    Platform engineering decisions prioritize maintainability and resilience over unnecessary architectural complexity.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Recovery-Driven Design
+                </h3>
+
+                <p>
+                    Backup validation, operational audits, and recovery readiness are integrated into infrastructure workflows.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Infrastructure Discipline
+                </h3>
+
+                <p>
+                    GitOps workflows, governance enforcement, and operational automation establish reproducible infrastructure operations.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

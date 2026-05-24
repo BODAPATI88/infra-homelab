@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="space-y-10">
+
+    <div>
+        <h1 class="text-5xl font-bold mb-4">
+            Platform Status
+        </h1>
+
+        <p class="text-gray-400 text-xl">
+            Operational visibility and infrastructure health
+        </p>
+    </div>
+
+    <!-- Cluster Overview -->
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Cluster Health
+            </p>
+
+            <h2 class="text-3xl font-bold text-green-400">
+                Healthy
+            </h2>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Nodes
+            </p>
+
+            <h2 class="text-3xl font-bold text-cyan-400">
+                3
+            </h2>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Namespaces
+            </p>
+
+            <h2 class="text-3xl font-bold text-purple-400">
+                6
+            </h2>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Backups
+            </p>
+
+            <h2 class="text-3xl font-bold text-yellow-400">
+                Validated
+            </h2>
+        </div>
+
+    </section>
+
+    <!-- Node Status -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-8">
+            Node Status
+        </h2>
+
+        <div class="space-y-4">
+
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                <div>
+                    <h3 class="font-semibold text-lg">
+                        k8s-master
+                    </h3>
+
+                    <p class="text-gray-400">
+                        control-plane
+                    </p>
+                </div>
+
+                <span class="text-green-400">
+                    Ready
+                </span>
+            </div>
+
+            <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+                <div>
+                    <h3 class="font-semibold text-lg">
+                        k8s-worker1
+                    </h3>
+
+                    <p class="text-gray-400">
+                        application workloads
+                    </p>
+                </div>
+
+                <span class="text-green-400">
+                    Ready
+                </span>
+            </div>
+
+            <div class="flex items-center justify-between pb-4">
+                <div>
+                    <h3 class="font-semibold text-lg">
+                        k8s-worker2
+                    </h3>
+
+                    <p class="text-gray-400">
+                        observability workloads
+                    </p>
+                </div>
+
+                <span class="text-yellow-400">
+                    Recovering
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Platform Services -->
+
+    <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Core Services
+            </h2>
+
+            <div class="space-y-4">
+
+                <div class="flex justify-between">
+                    <span>ArgoCD</span>
+                    <span class="text-green-400">Healthy</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Traefik</span>
+                    <span class="text-green-400">Operational</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>MetalLB</span>
+                    <span class="text-green-400">Active</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Prometheus</span>
+                    <span class="text-green-400">Healthy</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Loki</span>
+                    <span class="text-green-400">Optimized</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Operational Metrics
+            </h2>
+
+            <div class="space-y-4">
+
+                <div class="flex justify-between">
+                    <span>PVC Usage</span>
+                    <span class="text-cyan-400">Stable</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Ingress Routes</span>
+                    <span class="text-cyan-400">3 Active</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Certificates</span>
+                    <span class="text-cyan-400">Valid</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Governance</span>
+                    <span class="text-cyan-400">Enforced</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Audit Framework</span>
+                    <span class="text-cyan-400">Operational</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

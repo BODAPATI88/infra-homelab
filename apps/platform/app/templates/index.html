@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="space-y-12">
+
+    <!-- Hero Section -->
+
+    <section class="space-y-4">
+
+        <div class="flex items-center justify-between">
+
+            <div>
+
+                <h1 class="text-5xl font-bold">
+                    BVRINFRA Platform
+                </h1>
+
+                <p class="text-gray-400 text-xl mt-3">
+                    Operational Kubernetes Engineering Portal
+                </p>
+
+            </div>
+
+            <div class="hidden md:flex items-center space-x-3">
+
+                <span class="px-4 py-2 rounded-full bg-green-500/20 text-green-400 border border-green-500/30">
+                    {{ cluster_health }}
+                </span>
+
+                <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+                    GitOps Active
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Metrics Grid -->
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+            <p class="text-gray-400 text-sm mb-2">
+                Cluster Nodes
+            </p>
+
+            <h2 class="text-4xl font-bold text-cyan-400">
+                {{ cluster_nodes }}
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Live Kubernetes node inventory
+            </p>
+
+        </div>
+
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+            <p class="text-gray-400 text-sm mb-2">
+                Cluster Health
+            </p>
+
+            <h2 class="text-4xl font-bold text-green-400">
+                {{ cluster_health }}
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Real-time cluster readiness
+            </p>
+
+        </div>
+
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+            <p class="text-gray-400 text-sm mb-2">
+                Running Pods
+            </p>
+
+            <h2 class="text-4xl font-bold text-purple-400">
+                {{ pod_running }}
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Total Pods: {{ pod_total }}
+            </p>
+
+        </div>
+
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+            <p class="text-gray-400 text-sm mb-2">
+                Namespaces
+            </p>
+
+            <h2 class="text-4xl font-bold text-orange-400">
+                {{ namespace_count }}
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Active Kubernetes namespaces
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Live Node Inventory -->
+
+    <section class="mt-10">
+
+        <h2 class="text-2xl font-bold text-white mb-6">
+            Cluster Nodes
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            {% for node in nodes %}
+
+            <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+
+                <h3 class="text-xl font-semibold text-cyan-400 mb-4">
+                    {{ node.name }}
+                </h3>
+
+                <div class="space-y-2 text-gray-300">
+
+                    <p>
+                        <span class="text-gray-500">
+                            Status:
+                        </span>
+
+                        {{ node.status }}
+                    </p>
+
+                    <p>
+                        <span class="text-gray-500">
+                            Kubelet:
+                        </span>
+
+                        {{ node.kubelet }}
+                    </p>
+
+                    <p>
+                        <span class="text-gray-500">
+                            OS:
+                        </span>
+
+                        {{ node.os }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- Architecture -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold mb-2">
+                Platform Architecture
+            </h2>
+
+            <p class="text-gray-400">
+                Public-safe operational Kubernetes topology
+            </p>
+
+        </div>
+
+        <img
+            src="/static/images/cluster-topology.png"
+            alt="Cluster Topology"
+            class="rounded-2xl border border-gray-800"
+        >
+
+    </section>
+
+    <!-- Operations -->
+
+    <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Operational Capabilities
+            </h2>
+
+            <div class="space-y-4">
+
+                <div class="flex items-center justify-between">
+                    <span>GitOps Deployments</span>
+                    <span class="text-green-400">Operational</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span>Backup Automation</span>
+                    <span class="text-green-400">Validated</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span>Governance Enforcement</span>
+                    <span class="text-green-400">Enabled</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span>Observability Stack</span>
+                    <span class="text-green-400">Healthy</span>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <span>Ingress Routing</span>
+                    <span class="text-green-400">Active</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Incident Recovery Highlights
+            </h2>
+
+            <div class="space-y-5">
+
+                <div>
+
+                    <h3 class="font-semibold text-cyan-400">
+                        Worker Node Recovery
+                    </h3>
+
+                    <p class="text-gray-400 mt-2">
+                        Recovered node scheduling instability and restored observability workloads.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h3 class="font-semibold text-cyan-400">
+                        Loki Optimization
+                    </h3>
+
+                    <p class="text-gray-400 mt-2">
+                        Reduced memory pressure through canary removal and single-binary tuning.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <h3 class="font-semibold text-cyan-400">
+                        Governance Stabilization
+                    </h3>
+
+                    <p class="text-gray-400 mt-2">
+                        Implemented namespace controls using ResourceQuota and LimitRange policies.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="space-y-12">
+
+    <!-- Header -->
+
+    <section>
+
+        <h1 class="text-5xl font-bold mb-4">
+            Platform Architecture
+        </h1>
+
+        <p class="text-gray-400 text-xl">
+            Kubernetes infrastructure topology and operational design
+        </p>
+
+    </section>
+
+    <!-- Main Topology -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <div class="mb-8">
+
+            <h2 class="text-3xl font-bold mb-2">
+                Cluster Topology
+            </h2>
+
+            <p class="text-gray-400">
+                Public-safe operational Kubernetes architecture
+            </p>
+
+        </div>
+
+        <img
+            src="/static/images/cluster-topology.png"
+            alt="Cluster Topology"
+            class="rounded-2xl border border-gray-800"
+        >
+
+    </section>
+
+    <!-- Architecture Layers -->
+
+    <section class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6 text-cyan-400">
+                GitOps Layer
+            </h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <p>
+                    GitHub-driven infrastructure lifecycle management.
+                </p>
+
+                <p>
+                    ArgoCD continuously reconciles cluster state from Git repositories.
+                </p>
+
+                <p>
+                    Enables rollback validation, deployment traceability, and operational consistency.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6 text-purple-400">
+                Observability Layer
+            </h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <p>
+                    Prometheus provides metrics collection and workload monitoring.
+                </p>
+
+                <p>
+                    Grafana delivers operational dashboards and visualization.
+                </p>
+
+                <p>
+                    Loki and Promtail provide centralized Kubernetes logging.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6 text-green-400">
+                Resilience Layer
+            </h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <p>
+                    Automated backups protect K3s datastore and infrastructure state.
+                </p>
+
+                <p>
+                    Recovery procedures are documented and operationally validated.
+                </p>
+
+                <p>
+                    Governance policies stabilize resource-constrained workloads.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Namespace Layout -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-8">
+            Namespace Architecture
+        </h2>
+
+        <div class="overflow-x-auto">
+
+            <table class="w-full">
+
+                <thead>
+
+                    <tr class="border-b border-gray-800 text-left">
+
+                        <th class="pb-4">Namespace</th>
+                        <th class="pb-4">Purpose</th>
+                        <th class="pb-4">Operational Role</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody class="text-gray-300">
+
+                    <tr class="border-b border-gray-800">
+                        <td class="py-4">apps</td>
+                        <td class="py-4">Application workloads</td>
+                        <td class="py-4">Business services</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-800">
+                        <td class="py-4">monitoring</td>
+                        <td class="py-4">Metrics and dashboards</td>
+                        <td class="py-4">Observability</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-800">
+                        <td class="py-4">logging</td>
+                        <td class="py-4">Centralized logging</td>
+                        <td class="py-4">Operational telemetry</td>
+                    </tr>
+
+                    <tr class="border-b border-gray-800">
+                        <td class="py-4">argocd</td>
+                        <td class="py-4">GitOps control plane</td>
+                        <td class="py-4">Deployment reconciliation</td>
+                    </tr>
+
+                    <tr>
+                        <td class="py-4">metallb-system</td>
+                        <td class="py-4">Load balancing</td>
+                        <td class="py-4">Ingress exposure</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- Operational Philosophy -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-6">
+            Operational Philosophy
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Infrastructure Discipline
+                </h3>
+
+                <p>
+                    Infrastructure changes are Git-tracked, operationally validated, and governed through reproducible workflows.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Resource-Constrained Optimization
+                </h3>
+
+                <p>
+                    Platform engineering decisions prioritize operational efficiency and stability under constrained hardware conditions.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Observability-First Operations
+                </h3>
+
+                <p>
+                    Metrics, logs, audits, and operational visibility are treated as first-class platform requirements.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Recovery-Centric Engineering
+                </h3>
+
+                <p>
+                    Backup validation, recovery testing, and incident documentation are integrated into operational workflows.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
