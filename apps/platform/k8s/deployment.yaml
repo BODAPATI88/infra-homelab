@@ -18,7 +18,8 @@ spec:
         app: bvrinfra-platform
 
     spec:
-
+         imagePullSecrets:
+          - name: ghcr-secret
       nodeSelector:
         kubernetes.io/hostname: k8s-master
 
@@ -30,9 +31,9 @@ spec:
       containers:
       - name: bvrinfra-platform
 
-        image: docker.io/library/bvrinfra-platform:v1
+        image: ghcr.io/bodapati88/bvrinfra-platform:latest
 
-        imagePullPolicy: Never
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 8080
