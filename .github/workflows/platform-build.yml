@@ -30,6 +30,7 @@ jobs:
         run: |
           docker build \
             -t ghcr.io/bodapati88/bvrinfra-platform:latest \
+            -f ./apps/platform/Dockerfile \
             ./apps/platform
 
       - name: Push Docker Image
