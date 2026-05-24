@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="space-y-12">
+
+    <!-- Header -->
+
+    <section>
+
+        <h1 class="text-5xl font-bold mb-4">
+            Platform Operations
+        </h1>
+
+        <p class="text-gray-400 text-xl">
+            Operational automation, governance, backup engineering, and resilience tooling
+        </p>
+
+    </section>
+
+    <!-- Automation Overview -->
+
+    <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Backup Automation
+            </p>
+
+            <h2 class="text-3xl font-bold text-green-400">
+                Active
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Scheduled operational backups
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Audit Framework
+            </p>
+
+            <h2 class="text-3xl font-bold text-cyan-400">
+                Enabled
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Cluster audit collection
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Governance
+            </p>
+
+            <h2 class="text-3xl font-bold text-purple-400">
+                Enforced
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Namespace resource control
+            </p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-6">
+            <p class="text-gray-400 text-sm mb-2">
+                Recovery Tooling
+            </p>
+
+            <h2 class="text-3xl font-bold text-yellow-400">
+                Validated
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                Operational recovery procedures
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Operational Scripts -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-8">
+            Operational Tooling
+        </h2>
+
+        <div class="space-y-6">
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <h3 class="text-2xl font-semibold text-cyan-400">
+                        k3s-backup.sh
+                    </h3>
+
+                    <span class="text-green-400">
+                        Operational
+                    </span>
+
+                </div>
+
+                <p class="text-gray-300 mb-4">
+                    Automated K3s datastore, manifests, and Git repository backup system with validation and retention management.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    ~/scripts/k3s-backup.sh
+                </div>
+
+            </div>
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <h3 class="text-2xl font-semibold text-cyan-400">
+                        platform-audit.sh
+                    </h3>
+
+                    <span class="text-green-400">
+                        Operational
+                    </span>
+
+                </div>
+
+                <p class="text-gray-300 mb-4">
+                    Collects platform snapshots including nodes, workloads, certificates, ingress, PVCs, and operational metrics.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    ~/scripts/platform-audit.sh
+                </div>
+
+            </div>
+
+            <div class="border border-gray-800 rounded-xl p-6">
+
+                <div class="flex items-center justify-between mb-4">
+
+                    <h3 class="text-2xl font-semibold text-cyan-400">
+                        khealth
+                    </h3>
+
+                    <span class="text-green-400">
+                        Operational
+                    </span>
+
+                </div>
+
+                <p class="text-gray-300 mb-4">
+                    Operational health reporting utility for cluster visibility and infrastructure validation.
+                </p>
+
+                <div class="bg-gray-950 rounded-lg p-4 text-sm text-gray-400 font-mono">
+                    khealth
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Governance -->
+
+    <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Governance Controls
+            </h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <div class="flex justify-between">
+                    <span>ResourceQuota</span>
+                    <span class="text-green-400">Applied</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>LimitRange</span>
+                    <span class="text-green-400">Applied</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Namespace Isolation</span>
+                    <span class="text-green-400">Active</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Operational Boundaries</span>
+                    <span class="text-green-400">Enforced</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold mb-6">
+                Backup Architecture
+            </h2>
+
+            <div class="space-y-4 text-gray-300">
+
+                <div class="flex justify-between">
+                    <span>K3s Datastore</span>
+                    <span class="text-cyan-400">Protected</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Git Repository</span>
+                    <span class="text-cyan-400">Protected</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Manifest Archives</span>
+                    <span class="text-cyan-400">Protected</span>
+                </div>
+
+                <div class="flex justify-between">
+                    <span>Retention Cleanup</span>
+                    <span class="text-cyan-400">Automated</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Operational Philosophy -->
+
+    <section class="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+
+        <h2 class="text-3xl font-bold mb-6">
+            Operational Engineering Principles
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Automation First
+                </h3>
+
+                <p>
+                    Repetitive operational tasks are automated to improve reliability and reduce manual intervention.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Recovery-Centric Operations
+                </h3>
+
+                <p>
+                    Backup validation and recovery readiness are treated as operational requirements, not optional features.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Auditability
+                </h3>
+
+                <p>
+                    Platform state and operational changes are continuously documented and captured for visibility.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-3 text-cyan-400">
+                    Controlled Complexity
+                </h3>
+
+                <p>
+                    Infrastructure design prioritizes stability, maintainability, and operational clarity over unnecessary complexity.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
