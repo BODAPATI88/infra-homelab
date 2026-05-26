@@ -26,13 +26,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set Image Tag
+        run: echo "IMAGE_TAG=sha-${GITHUB_SHA::7}" >> $GITHUB_ENV
+
       - name: Build Docker Image
         run: |
           docker build \
-            -t ghcr.io/bodapati88/bvrinfra-platform:latest \
+            -t ghcr.io/bodapati88/bvrinfra-platform:${IMAGE_TAG} \
             -f ./apps/platform/Dockerfile \
             ./apps/platform
 
       - name: Push Docker Image
         run: |
-          docker push ghcr.io/bodapati88/bvrinfra-platform:latest
+          docker push ghcr.io/bodapati88/bvrinfra-platform:${IMAGE_TAG}
