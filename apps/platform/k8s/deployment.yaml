@@ -17,8 +17,8 @@ spec:
       labels:
         app: bvrinfra-platform
 
-    spec:
-         imagePullSecrets:
+      spec:
+        imagePullSecrets:
           - name: ghcr-secret
       nodeSelector:
         kubernetes.io/hostname: k8s-master
