@@ -1,52 +1,83 @@
 # Logs
+
 *.log
 
 # Temporary files
+
 *.tmp
 *.temp
 *.swp
 *.bak
 
 # Environment files
+
 .env
 .env.*
 
+# Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+venv/
+*.venv
+
+# Node
+
+node_modules/
+dist/
+
 # Kubernetes
+
 kubeconfig
 *.kubeconfig
 
 # Terraform
+
 .terraform/
 *.tfstate
 *.tfstate.backup
 
+# Helm
+
+charts/
+
 # IDE
+
 .vscode/
 .idea/
 
 # OS files
+
 .DS_Store
 Thumbs.db
 
 # Backup archives
+
 *.tar
 *.gz
 *.zip
 
-# Python
-__pycache__/
-*.pyc
+# GitHub Actions artifacts
 
-# Node
-node_modules/
-
-# Helm
-charts/
+.github/*.log
 
 # Generated manifests
+
 rendered/
 
 # Local scripts output
+
 output/
 reports/
 snapshots/
+
+# Build artifacts
+
+build/
+
+# Docker
+
+docker-save/
+
