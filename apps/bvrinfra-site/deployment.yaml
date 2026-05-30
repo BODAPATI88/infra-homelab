@@ -37,7 +37,7 @@ spec:
       containers:
         - name: bvrinfra-site
 
-          image: ghcr.io/bodapati88/bvrinfra-site:sha-3a3aaaf
+          image: ghcr.io/bodapati88/bvrinfra-site:sha-bbd03dd
 
           imagePullPolicy: Always
 
